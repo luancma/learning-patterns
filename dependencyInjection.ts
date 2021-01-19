@@ -1,4 +1,3 @@
-// Types
 type IFormatPriceDependency = {
     getFormatDependency(number: number): string;
 }
@@ -6,12 +5,10 @@ type IFormatPriceDependency = {
 type IPriceFormat = {
     getPriceWithSymbol(): string;
 }
-// End Types
 
-// Classes
 class Dependency implements IFormatPriceDependency {
     getFormatDependency(number: number){
-        return "teste"
+        return `R$ ${number}`
     }
 }
 
@@ -29,11 +26,9 @@ class Price implements IPriceFormat{
         return dependencyImplementation;
     }
 }
-// End Classes
 
-// Main function implementation
 const main = () => {
-    const price = 12;
+    const price = 10;
     const dependencyClass = new Dependency();
     const priceClass = new Price(price, dependencyClass);
     
